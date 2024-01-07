@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.5.33414.496
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "LifeBoost", "..\LifeBoost\LifeBoost.csproj", "{9E26E047-1BD7-42D9-9DD1-F2E44B72E663}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuaranteedBossDrops", "..\GuaranteedBossDrops\GuaranteedBossDrops.csproj", "{8F2BE395-E3F5-4742-A67A-CFE77DFA11E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FCE2E801-8B6C-4A74-9290-3462462A9698}"
+	ProjectSection(SolutionItems) = preProject
+		ModIdeas.txt = ModIdeas.txt
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStatBars", "..\CustomStatBars\CustomStatBars.csproj", "{4995C26A-A710-476F-9568-7FC357F660A4}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChestConverter", "..\ChestConverter\ChestConverter.csproj", "{D28A9414-7066-40E3-843B-259992D6A008}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NoOreOnlyBars", "..\NoOreOnlyBars\NoOreOnlyBars.csproj", "{297704DE-0CD4-4C3F-BE1E-EE53486317A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E26E047-1BD7-42D9-9DD1-F2E44B72E663}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E26E047-1BD7-42D9-9DD1-F2E44B72E663}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E26E047-1BD7-42D9-9DD1-F2E44B72E663}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E26E047-1BD7-42D9-9DD1-F2E44B72E663}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2BE395-E3F5-4742-A67A-CFE77DFA11E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2BE395-E3F5-4742-A67A-CFE77DFA11E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2BE395-E3F5-4742-A67A-CFE77DFA11E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2BE395-E3F5-4742-A67A-CFE77DFA11E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4995C26A-A710-476F-9568-7FC357F660A4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4995C26A-A710-476F-9568-7FC357F660A4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4995C26A-A710-476F-9568-7FC357F660A4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4995C26A-A710-476F-9568-7FC357F660A4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D28A9414-7066-40E3-843B-259992D6A008}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D28A9414-7066-40E3-843B-259992D6A008}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D28A9414-7066-40E3-843B-259992D6A008}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D28A9414-7066-40E3-843B-259992D6A008}.Release|Any CPU.Build.0 = Release|Any CPU
+		{297704DE-0CD4-4C3F-BE1E-EE53486317A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{297704DE-0CD4-4C3F-BE1E-EE53486317A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{297704DE-0CD4-4C3F-BE1E-EE53486317A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{297704DE-0CD4-4C3F-BE1E-EE53486317A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9171820F-796D-4D9F-93FB-EE13E6AA4C00}
+	EndGlobalSection
+EndGlobal

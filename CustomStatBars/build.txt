@@ -1,0 +1,3 @@
+displayName = Custom Stat Bars
+author = codefoxup
+version = 0.1

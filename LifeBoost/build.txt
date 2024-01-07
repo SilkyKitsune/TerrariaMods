@@ -1,0 +1,3 @@
+displayName = Life Boost
+author = codefoxup
+version = 0.5

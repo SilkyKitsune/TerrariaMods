@@ -1,0 +1,36 @@
+Potion Percent
+- Lesser
+  - 25%
+  - 20s
+- Normal
+  - 50%
+  - 35s - 40s
+- Greater
+  - 100%
+  - 60s
+- Super
+  - 100%
+  - 60s
+  - +20% life buff
+    - 30s
+- Restoration
+  - ?
+- bosses would have to drop different amounts of each healing potion
+
+  npcs actively attack bosses
+
+X Enemies drop ore/summoners(Rare chance for demonite/crimtan, hallowed bars in hard mode, chlorophyte post plantera?, hellstone from hell enemies?)
+X Bosses drop 1-3 iron crate chance, 1 gold crate chance
+X Shadow orb guaranteed worm food drop
+X Spiders drop summon staffs?
+X Zoologist sells summon staffs?
+  hell enemies drop demon conch?
+
+  boss Summoners non-consumable?
+
+X Add increased item stacks
+
+  extra smol worlds? Half of smol world size
+
+hotbar swapping like stardew
+Quick select menu to change highlighted slot and pauses game

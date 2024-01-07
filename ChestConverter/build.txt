@@ -1,0 +1,3 @@
+displayName = Chest Converter
+author = codefoxup
+version = 0.1

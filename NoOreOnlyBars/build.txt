@@ -1,0 +1,3 @@
+displayName = No Ore Only Bars
+author = codefoxup
+version = 0.1
