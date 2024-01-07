@@ -9,7 +9,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuaranteedBossDrops", "..\G
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FCE2E801-8B6C-4A74-9290-3462462A9698}"
 	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
 		ModIdeas.txt = ModIdeas.txt
+		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomStatBars", "..\CustomStatBars\CustomStatBars.csproj", "{4995C26A-A710-476F-9568-7FC357F660A4}"
