@@ -89,7 +89,11 @@ internal sealed class CustomPlayer : ModPlayer
 
     public override bool CanUseItem(Item item) => !mouseOverButtons && base.CanUseItem(item);
 
+#if V1_4_3
     public override void OnEnterWorld(Player player) => player.AddBuff(TimeBuff.typeID, 60);
+#elif V1_4_4
+    //public override void OnEnterWorld() => Player.AddBuff(TimeBuff.typeID, 60);
+#endif
 }
 
 internal sealed class TimeBuff : ModBuff
@@ -131,7 +135,12 @@ internal sealed class TimeBuff : ModBuff
         NPC.AnyNPCs(NPCID.MoonLordHand) ||
         NPC.AnyNPCs(NPCID.MoonLordCore);
 
-    public override void ModifyBuffTip(ref string tip, ref int rare) => tip = NPC.AnyNPCs(NPCID.EyeofCthulhu) ? BossActiveTip : NormalTip;
+#if V1_4_3
+    public override void ModifyBuffTip(ref string tip, ref int rare) =>
+#elif V1_4_4
+    public override void ModifyBuffText(ref string buffName, ref string tip, ref int rare) =>
+#endif
+        tip = NPC.AnyNPCs(NPCID.EyeofCthulhu) ? BossActiveTip : NormalTip;
 
     public override bool RightClick(int buffIndex) => false;
 
@@ -142,7 +151,11 @@ internal sealed class TimeBuff : ModBuff
         Main.buffNoSave[typeID] = true;
         Main.persistentBuff[typeID] = true;
         Main.buffNoTimeDisplay[typeID] = true;
+#if V1_4_3
         DisplayName.SetDefault("Time Distortion");
+#elif V1_4_4
+        //?
+#endif
     }
     
     public override void Update(Player player, ref int buffIndex)
@@ -161,8 +174,52 @@ internal sealed class TimeBuff : ModBuff
     }
 }
 
+#if V1_4_3
 internal sealed class IncreasedItemStacks : GlobalItem
 {
+    //temp placement
+    public override void ModifyShootStats(Item item, Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
+    {
+        if (Main.npc.Length == 0) return;
+        
+        Vector2 mouse = Main.MouseWorld, upper = mouse.RotatedBy(-0.05d * Math.Tau, player.position);
+        double d = 0.1d * Math.Tau;
+
+        //find closest enemy within angle of upper and lower
+        //find angle between projectile and enemy
+        //rotate velocity to enemy
+
+        float delta = float.MaxValue, newDelta;
+
+        NPC closest = Main.npc[0];
+        foreach (NPC npc in Main.npc)
+        {
+            if (npc != null)
+            {
+                if (npc.position.Equals(player.position))
+                {
+                    closest = npc;
+                    return;
+                }
+
+                if (closest != npc)
+                {
+                    newDelta = player.position.Distance(npc.position);
+                    if (newDelta < delta)
+                    {
+                        float angle = npc.position.AngleFrom(upper);
+                        if (angle < d)
+                        {
+                            closest = npc;
+                            delta = newDelta;
+                        }
+                    }
+                }
+            }
+        }
+        velocity = velocity.RotatedBy(closest.position.AngleFrom(mouse), player.position);
+    }
+
     public override void SetDefaults(Item item)
     {
         if (item.potion) item.maxStack = 999;
@@ -174,10 +231,12 @@ internal sealed class FuckSpasmatism : GlobalNPC
 {
     public override void SetDefaults(NPC npc)
     {
-        if (npc.type == NPCID.Spazmatism)
+        if (npc.type == NPCID.Spazmatism) npc.lifeMax /= 4;
+        else if (npc.type == NPCID.GoblinSummoner)//move to own mod
         {
-            //npc.lifeMax = 1;
-            npc.lifeMax /= 4;
+            //npc.lifeMax /= 4;
+            npc.defense = 5;
         }
     }
 }
+#endif

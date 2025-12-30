@@ -113,15 +113,23 @@ namespace NoOreOnlyBars
 
 	internal sealed class TileDrops : GlobalTile
 	{
+#if V1_4_3
         public override bool Drop(int i, int j, int type)
+#elif V1_4_4
+    public override void Drop(int i, int j, int type)
+#endif
         {
             int bar = OreTileToBar(type);
             if (bar != int.MinValue)
             {
                 Item.NewItem(null, i * 16, j * 16, 0, 0, bar);
+#if V1_4_3
                 return false;
+#endif
             }
+#if V1_4_3
             return true;
+#endif
         }
     }
 

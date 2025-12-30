@@ -18,7 +18,11 @@ internal abstract class UICustomButton : UIElement
     {
         this.x = x;
         this.y = y;
+#if V1_4_3
         OnMouseUp += Click;//different event?
+#elif V1_4_4
+        OnLeftMouseUp += Click;
+#endif
         OnMouseOver += (evt, listeningElement) => mouseOver = true;
         OnMouseOut += (evt, listeningElement) => mouseOver = false;
     }

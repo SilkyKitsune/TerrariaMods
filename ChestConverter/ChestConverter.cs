@@ -26,11 +26,13 @@ internal sealed class ChestConverterSystem : ModSystem
 
         ItemID.LihzahrdChest,
         ItemID.WaterChest,
-        //ItemID.CorruptionChest,
-        //ItemID.CrimsonChest,
-        //ItemID.HallowedChest,
-        //ItemID.FrozenChest,
-        //ItemID.JungleChest,
+#if V1_4_4
+        ItemID.CorruptionChest,
+        ItemID.CrimsonChest,
+        ItemID.HallowedChest,
+        ItemID.FrozenChest,
+        ItemID.JungleChest,
+#endif
 
         ItemID.MushroomChest,
         ItemID.BoneChest,
@@ -65,11 +67,13 @@ internal sealed class ChestConverterSystem : ModSystem
         ItemID.StardustChest,
         ItemID.VortexChest,
         ItemID.BambooChest,
-        //ItemID.DungeonDesertChest,
+#if V1_4_4
+        ItemID.DungeonDesertChest,
         
-        //ItemID.AshWoodChest,//I think this is in a newer version
-        //ItemID.BalloonChest,//I think this is in a newer version
-        //ItemID.ReefChest,//I think this is in a newer version
+        ItemID.AshWoodChest,
+        ItemID.BalloonChest,
+        //ItemID.ReefChest,
+#endif
     };
 
     internal static int ChestGroupID;

@@ -58,7 +58,9 @@ internal sealed class NPCDrops : GlobalNPC
         ItemID.AmmoReservationPotion,
         ItemID.ArcheryPotion,
         ItemID.BattlePotion,
-        //ItemID.BiomeSightPotion,
+#if V1_4_4
+        ItemID.BiomeSightPotion,
+#endif
         ItemID.BuilderPotion,
         ItemID.CalmingPotion,
         ItemID.CratePotion,
@@ -202,6 +204,18 @@ internal sealed class NPCDrops : GlobalNPC
     }
 #endif
 
+#if V1_4_4
+    public override void ModifyActiveShop(NPC npc, string shopName, Item[] items)
+    {
+        if (npc.type == NPCID.BestiaryGirl)
+            for (int i = 0, j = 0; i < items.Length /*&& j < */; i++)
+                if (items[i] == null)
+                {
+                    //add array of items to be added
+                }
+    }
+#endif
+
     public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
     {
         switch (npc.type)
@@ -244,7 +258,19 @@ internal sealed class NPCDrops : GlobalNPC
             case NPCID.TownDog:
             case NPCID.TownBunny:
             case NPCID.Princess:
-            //townslimes
+#if V1_4_4
+            case NPCID.BoundTownSlimeOld:
+            case NPCID.BoundTownSlimePurple:
+            case NPCID.BoundTownSlimeYellow:
+            case NPCID.TownSlimeBlue:
+            case NPCID.TownSlimeCopper:
+            case NPCID.TownSlimeGreen:
+            case NPCID.TownSlimeOld:
+            case NPCID.TownSlimePurple:
+            case NPCID.TownSlimeRainbow:
+            case NPCID.TownSlimeRed:
+            case NPCID.TownSlimeYellow:
+#endif
                 break;
             #endregion
 
@@ -342,13 +368,15 @@ internal sealed class NPCDrops : GlobalNPC
             case NPCID.Lavafly:
             case NPCID.MagmaSnail:
             case NPCID.EmpressButterfly:
-            //case NPCID.Stinkbug:
-            //case NPCID.ScarletMacaw:
-            //case NPCID.BlueMacaw:
-            //case NPCID.Toucan:
-            //case NPCID.YellowCockatiel:
-            //case NPCID.GrayCockatiel:
-            //case NPCID.Shimmerfly:
+#if V1_4_4
+            case NPCID.Stinkbug:
+            case NPCID.ScarletMacaw:
+            case NPCID.BlueMacaw:
+            case NPCID.Toucan:
+            case NPCID.YellowCockatiel:
+            case NPCID.GrayCockatiel:
+            case NPCID.Shimmerfly:
+#endif
                 break;
             #endregion
 
@@ -466,6 +494,7 @@ internal sealed class NPCDrops : GlobalNPC
         }
     }
 
+#if V1_4_3
     public override void SetupShop(int type, Chest shop, ref int nextSlot)
     {
         if (type == NPCID.BestiaryGirl)
@@ -474,17 +503,22 @@ internal sealed class NPCDrops : GlobalNPC
             if (Main.hardMode) shop.item[nextSlot++].SetDefaults(ItemID.RavenStaff);
         }
     }
+#endif
 }
 
 internal sealed class ShadowOrbDrops : GlobalTile
 {
-    private int i = 0;
+    private int wait = 0;
 
+#if V1_4_3
     public override bool Drop(int i, int j, int type)
+#elif V1_4_4
+    public override void Drop(int i, int j, int type)
+#endif
     {
-        if (i >= 4) i = 0;
+        if (wait >= 4) wait = 0;
 
-        if (type == TileID.ShadowOrbs && i++ == 0)//still manages to run 5 times
+        if (type == TileID.ShadowOrbs && wait++ == 0)//runs 2 times?
         {
             //Player p = Main.player[Main.myPlayer];
             //p.QuickSpawnItem(p.GetSource_GiftOrReward(), ItemID.WormFood);
@@ -492,7 +526,9 @@ internal sealed class ShadowOrbDrops : GlobalTile
             //Debug.WriteLine("test");
         }
 
+#if V1_4_3
         return true;
+#endif
     }
 }
 
