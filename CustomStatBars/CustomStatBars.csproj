@@ -3,9 +3,20 @@
   <Import Project="..\TerrariaMods\tModLoader.targets" />
   <PropertyGroup>
     <AssemblyName>CustomStatBars</AssemblyName>
-    <TargetFramework>net6.0</TargetFramework>
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <LangVersion>latest</LangVersion>
+	<ImplicitUsings>disable</ImplicitUsings>
+	<Nullable>disable</Nullable>
+    <Configurations>Debug;Release;v1_4_3;v1_4_4</Configurations>
+    <Authors>SilkyKitsune</Authors>
+    <Version>1.0</Version>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='v1_4_3|AnyCPU'">
+    <TargetFramework>net6.0</TargetFramework>
+    <Optimize>True</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='v1_4_4|AnyCPU'">
+    <TargetFramework>net8.0</TargetFramework>
+    <Optimize>True</Optimize>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
