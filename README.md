@@ -7,6 +7,9 @@ Add all the visual variety to your chests that you've always dreamed!!!
 ### CustomStatBars
 This is a personal use mod, it mostly serves as a testing space for mod ideas.
 
+### [Daisy Pusher](https://steamcommunity.com/sharedfiles/filedetails/?id=3636184196 "Steam workshop page")
+Adds a new kind of zombie called the Daisy Pusher! They always drop 1-3 herb bags, providing a new way of gathering all those herbs you need to make potions!
+
 ### Guaranteed Boss Drops
 Intended for use with Seldom's Archipelago mod
 - pending name change
