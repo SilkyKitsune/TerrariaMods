@@ -1,0 +1,3 @@
+displayName = Daisy Pusher
+author = SilkyKitsune
+version = 1.0
