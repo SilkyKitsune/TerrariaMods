@@ -78,16 +78,14 @@ internal sealed class ChestConverterSystem : ModSystem
 
     internal static int ChestGroupID;
 
-    internal static void AddChestRecipe(int id)
-    {
-        Recipe recipe = Recipe.Create(id);
-        recipe.AddRecipeGroup(ChestGroupID);
-        recipe.Register();
-    }
-
     public override void AddRecipes()
     {
-        foreach (int id in chestIDs) AddChestRecipe(id);
+        foreach (int id in chestIDs)
+        {
+            Recipe recipe = Recipe.Create(id);
+            recipe.AddRecipeGroup(ChestGroupID);
+            recipe.Register();
+        }
     }
 
     public override void AddRecipeGroups()
