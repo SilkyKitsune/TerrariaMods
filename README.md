@@ -1,7 +1,8 @@
 # TerrariaMods
 
-### Chest Converter
-Adds recipes to craft any kind of chest into any other kind of chest.
+### [Chest Converter](https://steamcommunity.com/sharedfiles/filedetails/?id=3635602043 "Steam workshop page")
+Craft any chest into any other kind of chest! No more collecting every kind of chest! Have as many dungeon biome chests as you want!
+Add all the visual variety to your chests that you've always dreamed!!!
 
 ### CustomStatBars
 This is a personal use mod, it mostly serves as a testing space for mod ideas.
