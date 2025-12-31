@@ -5,8 +5,6 @@ using Terraria.ModLoader;
 
 namespace ChestConverter;
 
-internal sealed class ChestConverter : Mod { }
-
 internal sealed class ChestConverterSystem : ModSystem
 {
     internal static readonly int[] chestIDs =
@@ -78,6 +76,12 @@ internal sealed class ChestConverterSystem : ModSystem
 
     internal static int ChestGroupID;
 
+    public override void AddRecipeGroups()
+    {
+        RecipeGroup chestGroup = new(() => $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(ItemID.Chest)}", chestIDs);
+        ChestGroupID = RecipeGroup.RegisterGroup("Chest", chestGroup);
+    }
+
     public override void AddRecipes()
     {
         foreach (int id in chestIDs)
@@ -86,11 +90,5 @@ internal sealed class ChestConverterSystem : ModSystem
             recipe.AddRecipeGroup(ChestGroupID);
             recipe.Register();
         }
-    }
-
-    public override void AddRecipeGroups()
-    {
-        RecipeGroup chestGroup = new(() => $"{Language.GetTextValue("LegacyMisc.37")} {Lang.GetItemNameValue(ItemID.Chest)}", chestIDs);
-        ChestGroupID = RecipeGroup.RegisterGroup("Chest", chestGroup);
     }
 }
