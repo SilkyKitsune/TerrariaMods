@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-
 using Terraria;
 using Terraria.ID;
 using Terraria.GameContent.ItemDropRules;
@@ -7,10 +6,10 @@ using Terraria.ModLoader;
 
 namespace NoOreOnlyBars
 {
-	internal sealed class NoOreOnlyBars : Mod
-	{
+    internal sealed class NoOreOnlyBars//OopsAllBars?
+    {
         private const int dropRedux = 2;//would reduce 1 to 0
-        
+
         internal static int OreItemToBar(int id) => id switch
         {
             ItemID.CopperOre => ItemID.CopperBar,
@@ -104,17 +103,17 @@ namespace NoOreOnlyBars
         }
     }
 
-	internal sealed class ItemDrops : GlobalItem
-	{
+    internal sealed class ItemDrops : GlobalItem
+    {
         public override void ModifyItemLoot(Item item, ItemLoot itemLoot) => NoOreOnlyBars.ReplaceOreWithBars(itemLoot);
     }
 
-	internal sealed class TileDrops : GlobalTile
-	{
+    internal sealed class TileDrops : GlobalTile
+    {
 #if V1_4_3
         public override bool Drop(int i, int j, int type)
 #elif V1_4_4
-    public override void Drop(int i, int j, int type)
+        public override void Drop(int i, int j, int type)
 #endif
         {
             int bar = NoOreOnlyBars.OreTileToBar(type);
@@ -131,8 +130,8 @@ namespace NoOreOnlyBars
         }
     }
 
-	internal sealed class NPCDrops : GlobalNPC
-	{
+    internal sealed class NPCDrops : GlobalNPC
+    {
         public override void ModifyNPCLoot(NPC npc, NPCLoot npcLoot)
         {
             switch (npc.type)

@@ -1,14 +1,14 @@
 using System.Collections.Generic;
+
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+
 using Terraria;
 using Terraria.ID;
-using Terraria.UI;
 using Terraria.ModLoader;
+using Terraria.UI;
 
 namespace CustomStatBars;
-
-internal sealed class CustomStatBars : Mod { }
 
 internal sealed class CustomModSystem : ModSystem
 {
@@ -77,15 +77,14 @@ internal sealed class CustomPlayer : ModPlayer
 {
     internal bool mouseOverButtons = false;
 
-    public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) =>
-        new Item[]
-        {
-            new Item(ItemID.GoldPickaxe),
-            new Item(ItemID.GoldAxe),
-            new Item(ItemID.DD2PetGhost),
-            new Item(ItemID.ExoticEasternChewToy),
-            new Item(ItemID.TinkerersWorkshop)
-        };
+    /*public override IEnumerable<Item> AddStartingItems(bool mediumCoreDeath) =>
+        [
+            new(ItemID.GoldPickaxe),
+            new(ItemID.GoldAxe),
+            new(ItemID.DD2PetGhost),
+            new(ItemID.ExoticEasternChewToy),
+            new(ItemID.TinkerersWorkshop)
+        ];*/
 
     public override bool CanUseItem(Item item) => !mouseOverButtons && base.CanUseItem(item);
 
@@ -100,7 +99,7 @@ internal sealed class TimeBuff : ModBuff
 {
     private const int ExtraTimeTick = 3;
     
-    private const string NormalTip = "Time flows out of control...", BossActiveTip = "Time stand still...";
+    private const string NormalTip = "Time flows out of control...", BossActiveTip = "Time stands still...";
 
     internal static int typeID;
 
@@ -157,7 +156,7 @@ internal sealed class TimeBuff : ModBuff
         //?
 #endif
     }
-    
+
     public override void Update(Player player, ref int buffIndex)
     {
         player.buffTime[buffIndex] = 60;

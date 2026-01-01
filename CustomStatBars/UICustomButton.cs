@@ -1,12 +1,12 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using ReLogic.Content;
 using Terraria;
+using Terraria.Audio;
 using Terraria.ID;
-using Terraria.UI;
 using Terraria.GameContent;
 using Terraria.GameContent.UI.Elements;
 using Terraria.ModLoader;
-using Terraria.Audio;
+using Terraria.UI;
 
 namespace CustomStatBars;
 
@@ -81,13 +81,10 @@ internal sealed class UIHealButton : UICustomButton
         switch (id)
         {
             case ItemID.LesserHealingPotion:
-                return 60;
             case ItemID.HealingPotion:
-                goto case ItemID.LesserHealingPotion;
             case ItemID.GreaterHealingPotion:
-                goto case ItemID.LesserHealingPotion;
             case ItemID.SuperHealingPotion:
-                goto case ItemID.LesserHealingPotion;
+                return 60;
             case ItemID.RestorationPotion:
                 return 45;
             default:

@@ -1,6 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
-using Terraria.UI;
 using Terraria.GameContent.UI.Elements;
+using Terraria.UI;
 
 namespace CustomStatBars;
 
