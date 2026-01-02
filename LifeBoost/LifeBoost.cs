@@ -32,16 +32,5 @@ internal sealed class LifeBoostPlayer : ModPlayer
         if (fruitsUsed != 0) tag.Add(nameof(fruitsUsed), fruitsUsed);
     }
 
-    public override void OnEnterWorld(Player player)
-    {
-        if (extraLife > 0) player.statLifeMax += extraLife;
-
-        if (!lifeBoosted)
-        {
-            player.statLifeMax += 100;
-            lifeBoosted = true;
-        }
-        
-        player.AddBuff(DefenseBoost.typeID, DefenseBoost.BuffTime);
-    }
+    //public override void OnEnterWorld() => Player.AddBuff(DefenseBoost.typeID, DefenseBoost.BuffTime);
 }
