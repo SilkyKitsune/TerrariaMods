@@ -1,11 +1,8 @@
 using Terraria;
-using Terraria.ID;
 using Terraria.ModLoader;
 using Terraria.ModLoader.IO;
 
 namespace LifeBoost;
-
-internal sealed class LifeBoost : Mod { }
 
 internal sealed class LifeBoostPlayer : ModPlayer
 {
