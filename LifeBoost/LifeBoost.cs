@@ -49,43 +49,6 @@ internal sealed class LifeBoostPlayer : ModPlayer
     }
 }
 
-internal sealed class DefenseBoost : ModBuff
-{
-    internal const float DefMulti = 0.5f;
-
-    internal const int BuffTime = 60;
-
-    private const string ActiveBuffTip = "The spirits protect you...\n (x1.5 defense increase)";
-    private const string InactiveBuffTip = "The spirits cannot protect you...\n (no defense increase)";
-
-    internal static int typeID;
-
-    public override void ModifyBuffTip(ref string tip, ref int rare) => tip = Main.hardMode ? ActiveBuffTip : InactiveBuffTip;
-
-    public override bool RightClick(int buffIndex) => false;
-
-    public override void SetStaticDefaults()
-    {
-        typeID = Type;
-        Main.debuff[typeID] = false;
-        Main.buffNoSave[typeID] = true;
-        Main.persistentBuff[typeID] = true;
-        Main.buffNoTimeDisplay[typeID] = true;
-        DisplayName.SetDefault("Ethereal Protection");
-    }
-
-    public override void Update(Player player, ref int buffIndex)
-    {
-        player.buffTime[buffIndex] = BuffTime;
-        if (Main.hardMode)
-        {
-            LifeBoostPlayer p = player.GetModPlayer<LifeBoostPlayer>();
-            p.currentDefBoost = (int)(p.currentDef * DefMulti);
-            player.statDefense += p.currentDefBoost;
-        }
-    }
-}
-
 internal sealed class LifeItemsBoost : GlobalItem
 {
     internal const int MaxCrystals = 12;
