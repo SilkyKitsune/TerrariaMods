@@ -7,6 +7,13 @@ namespace LifeBoost;
 
 public sealed class VanillaItems : GlobalItem
 {
+    public override void AddRecipes()
+    {
+        Recipe.Create(ItemID.LifeCrystal).AddIngredient(LifeCrystalPlus.typeID).Register();
+        Recipe.Create(ItemID.LifeFruit).AddIngredient(LifeFruitPlus.typeID).Register();
+        Recipe.Create(ItemID.ManaCrystal).AddIngredient(ManaCrystalPlus.typeID).Register();
+    }
+
     public override bool CanUseItem(Item item, Player player) =>
         item.type != ItemID.LifeCrystal && item.type != ItemID.LifeFruit && item.type != ItemID.ManaCrystal;
 
