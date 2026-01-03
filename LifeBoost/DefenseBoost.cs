@@ -40,11 +40,6 @@ internal sealed class DefenseBoost : ModBuff
     public override void Update(Player player, ref int buffIndex)
     {
         player.buffTime[buffIndex] = BuffTime;
-        if (Main.hardMode)
-        {
-            LifeBoostPlayer p = player.GetModPlayer<LifeBoostPlayer>();
-            p.currentDefBoost = (int)(p.currentDef * DefMulti);
-            player.statDefense += p.currentDefBoost;
-        }
+        if (Main.hardMode) player.statDefense *= 1.5f;
     }
 }
