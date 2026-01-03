@@ -1,0 +1,101 @@
+Mods: {
+	LifeBoost: {
+		Buffs: {
+			DefenseBoost: {
+				DisplayName: Defense Boost
+				Description: Mods.LifeBoost.Buffs.DefenseBoost.Description
+			}
+		}
+
+		Items: {
+			LifeCrystalPlus: {
+				DisplayName: Life Crystal Plus
+				Tooltip: ""
+			}
+
+			LifeFruitPlus: {
+				DisplayName: Life Fruit Plus
+				Tooltip: ""
+			}
+
+			ManaCrystalPlus: {
+				DisplayName: Mana Crystal Plus
+				Tooltip: ""
+			}
+		}
+
+		Configs: {
+			LifeBoostConfig: {
+				DisplayName: Life Boost Config
+
+				Headers: {
+					Life: Life
+					Mana: Mana
+					Attack: Attack
+					Defense: Defense
+					Speed: Speed
+				}
+
+				baseLifeAmount: {
+					Label: Max life at start
+					Tooltip: ""
+				}
+
+				lifeCrystalAmount: {
+					Label: Amount a life crystal increases max life
+					Tooltip: ""
+				}
+
+				maxLifeCrystals: {
+					Label: Max life crystals consumable
+					Tooltip: ""
+				}
+
+				lifeFruitAmount: {
+					Label: Amount a life fruit increases max life
+					Tooltip: ""
+				}
+
+				maxLifeFruits: {
+					Label: Max life fruits consumable
+					Tooltip: ""
+				}
+
+				lifeFruitRequireMaxLifeCrystals: {
+					Label: Life fruit requires max life crystals consumed
+					Tooltip: ""
+				}
+
+				baseManaAmount: {
+					Label: Max mana at start
+					Tooltip: ""
+				}
+
+				manaCrystalAmount: {
+					Label: Amount a mana crystal increases max mana
+					Tooltip: ""
+				}
+
+				maxManaCrystals: {
+					Label: Max mana crystals consumable
+					Tooltip: ""
+				}
+
+				attackMultiplier: {
+					Label: Attack multiplier (percentage)
+					Tooltip: ""
+				}
+
+				defenseMultiplier: {
+					Label: Defense multiplier (percentage)
+					Tooltip: ""
+				}
+
+				speedMultiplier: {
+					Label: Speed multiplier (percentage)
+					Tooltip: ""
+				}
+			}
+		}
+	}
+}
