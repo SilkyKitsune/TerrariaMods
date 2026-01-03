@@ -1,6 +1,7 @@
 ﻿using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
+using System.Collections.Generic;
 
 namespace LifeBoost;
 
@@ -23,6 +24,11 @@ public sealed class VanillaItems : GlobalItem
                 item.healLife *= 2;
                 break;     
         }*/
+    }
+
+    public override void ModifyTooltips(Item item, List<TooltipLine> tooltips)
+    {
+        if (item.type == ItemID.LifeCrystal || item.type == ItemID.LifeFruit || item.type == ItemID.ManaCrystal) tooltips.RemoveAt(tooltips.Count - 1);
     }
 
     /*public override bool? UseItem(Item item, Player player)
