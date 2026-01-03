@@ -6,6 +6,11 @@ namespace LifeBoost;
 
 internal sealed class LifeBoostPlayer : ModPlayer
 {
+    internal const int
+        BaseLifeAmount = 200, LifeCrystalAmount = 50, MaxLifeCrystals = 12,
+        LifeFruitAmount = 20, MaxLifeFruits = 10,
+        BaseManaAmount = 50, ManaCrystalAmount = 50, MaxManaCrystals = 10;
+
     internal int extraLife = 100;
     internal int crystalsUsed = 0;
     internal int fruitsUsed = 0;

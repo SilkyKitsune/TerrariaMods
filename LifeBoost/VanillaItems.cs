@@ -6,14 +6,6 @@ namespace LifeBoost;
 
 public sealed class VanillaItems : GlobalItem
 {
-    internal const int MaxCrystals = 12;
-    internal const int MaxFruits = 10;
-
-    internal const int CrystalIncrease = 50;
-    internal const int FruitIncrease = 20;
-
-    internal const int PotionMulti = 2;
-
     public override bool CanUseItem(Item item, Player player) =>
         item.type != ItemID.LifeCrystal && item.type != ItemID.LifeFruit && item.type != ItemID.ManaCrystal;
 
@@ -28,7 +20,7 @@ public sealed class VanillaItems : GlobalItem
             case ItemID.GreaterHealingPotion:
             case ItemID.SuperHealingPotion:
             case ItemID.RestorationPotion:
-                item.healLife *= PotionMulti;
+                item.healLife *= 2;
                 break;     
         }*/
     }
