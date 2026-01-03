@@ -24,6 +24,8 @@ internal sealed class LifeBoostPlayer : ModPlayer
         tag.TryGet(nameof(manaCrystalsUsed), out manaCrystalsUsed);
     }
 
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) => modifiers.FinalDamage *= AttackMultiplier;
+
     public override void PostUpdateBuffs()
     {
         Player player = Player;
@@ -36,6 +38,10 @@ internal sealed class LifeBoostPlayer : ModPlayer
         player.statManaMax2 +=
             (int)(((BaseManaAmount < 0 ? 0 : BaseManaAmount) - 20 +
             (manaCrystalsUsed * ManaCrystalAmount)) * manaMultiplier);
+
+        player.statDefense *= DefenseMultiplier;
+
+        player.moveSpeed *= SpeedMultiplier;
     }
 
     public override void PreUpdateBuffs() => lifeMultiplier = manaMultiplier = 1f;
