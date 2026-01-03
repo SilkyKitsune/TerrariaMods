@@ -22,6 +22,4 @@ internal sealed class LifeBoostPlayer : ModPlayer
         if (crystalsUsed > 0) tag.Add(nameof(crystalsUsed), crystalsUsed);
         if (fruitsUsed > 0) tag.Add(nameof(fruitsUsed), fruitsUsed);
     }
-
-    //public override void OnEnterWorld() => Player.AddBuff(DefenseBoost.typeID, DefenseBoost.BuffTime);
 }

@@ -3,6 +3,7 @@ using Terraria.ModLoader;
 
 namespace LifeBoost;
 
+[System.Obsolete]
 internal sealed class DefenseBoost : ModBuff
 {
     internal const float DefMulti = 0.5f;
