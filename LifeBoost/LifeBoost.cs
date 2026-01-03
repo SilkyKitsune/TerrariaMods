@@ -6,13 +6,6 @@ namespace LifeBoost;
 
 internal sealed class LifeBoostPlayer : ModPlayer
 {
-    internal const int
-        BaseLifeAmount = 200, LifeCrystalAmount = 50, MaxLifeCrystals = 12,
-        LifeFruitAmount = 20, MaxLifeFruits = 10,
-        BaseManaAmount = 50, ManaCrystalAmount = 50, MaxManaCrystals = 10;
-
-    internal const float AttackMultiplier = 2f, DefenseMultiplier = 3f, SpeedMultiplier = 10f;
-
     internal int lifeCrystalsUsed = 0, lifeFruitsUsed = 0, manaCrystalsUsed = 0;
 
     internal float lifeMultiplier = 1f, manaMultiplier = 1f;
@@ -24,24 +17,26 @@ internal sealed class LifeBoostPlayer : ModPlayer
         tag.TryGet(nameof(manaCrystalsUsed), out manaCrystalsUsed);
     }
 
-    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) => modifiers.FinalDamage *= AttackMultiplier;
+    public override void ModifyHitNPC(NPC target, ref NPC.HitModifiers modifiers) =>
+        modifiers.FinalDamage *= ModContent.GetInstance<LifeBoostConfig>().attackMultiplier / 100f;
 
     public override void PostUpdateBuffs()
     {
         Player player = Player;
+        LifeBoostConfig config = ModContent.GetInstance<LifeBoostConfig>();
 
         player.statLifeMax2 +=
-            (int)(((BaseLifeAmount < 1 ? 1 : BaseLifeAmount) - 100 +
-            (lifeCrystalsUsed * LifeCrystalAmount) +
-            (lifeFruitsUsed * LifeFruitAmount)) * lifeMultiplier);
+            (int)(((config.baseLifeAmount < 1 ? 1 : config.baseLifeAmount) - 100 +
+            (lifeCrystalsUsed * config.lifeCrystalAmount) +
+            (lifeFruitsUsed * config.lifeFruitAmount)) * lifeMultiplier);
 
         player.statManaMax2 +=
-            (int)(((BaseManaAmount < 0 ? 0 : BaseManaAmount) - 20 +
-            (manaCrystalsUsed * ManaCrystalAmount)) * manaMultiplier);
+            (int)(((config.baseManaAmount < 0 ? 0 : config.baseManaAmount) - 20 +
+            (manaCrystalsUsed * config.manaCrystalAmount)) * manaMultiplier);
 
-        player.statDefense *= DefenseMultiplier;
+        player.statDefense *= config.defenseMultiplier / 100f;
 
-        player.moveSpeed *= SpeedMultiplier;
+        player.moveSpeed *= config.speedMultiplier / 100f;
     }
 
     public override void PreUpdateBuffs() => lifeMultiplier = manaMultiplier = 1f;
