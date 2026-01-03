@@ -11,20 +11,21 @@ internal sealed class LifeBoostPlayer : ModPlayer
         LifeFruitAmount = 20, MaxLifeFruits = 10,
         BaseManaAmount = 50, ManaCrystalAmount = 50, MaxManaCrystals = 10;
 
-    internal int extraLife = 100;
-    internal int crystalsUsed = 0;
-    internal int fruitsUsed = 0;
+    internal int lifeCrystalsUsed = 0, lifeFruitsUsed = 0, manaCrystalsUsed = 0;
+
+    internal float lifeMultiplier = 1f, manaMultiplier = 1f;
 
     public override void LoadData(TagCompound tag)
     {
-        crystalsUsed = tag.TryGet(nameof(crystalsUsed), out int crystalValue) ? crystalValue : 0;
-        fruitsUsed = tag.TryGet(nameof(fruitsUsed), out int fruitValue) ? fruitValue : 0;
+        tag.TryGet(nameof(lifeCrystalsUsed), out lifeCrystalsUsed);
+        tag.TryGet(nameof(lifeFruitsUsed),   out lifeFruitsUsed);
+        tag.TryGet(nameof(manaCrystalsUsed), out manaCrystalsUsed);
     }
-
 
     public override void SaveData(TagCompound tag)
     {
-        if (crystalsUsed > 0) tag.Add(nameof(crystalsUsed), crystalsUsed);
-        if (fruitsUsed > 0) tag.Add(nameof(fruitsUsed), fruitsUsed);
+        if (lifeCrystalsUsed > 0) tag.Add(nameof(lifeCrystalsUsed), lifeCrystalsUsed);
+        if (lifeFruitsUsed > 0)   tag.Add(nameof(lifeFruitsUsed),   lifeFruitsUsed);
+        if (manaCrystalsUsed > 0) tag.Add(nameof(manaCrystalsUsed), manaCrystalsUsed);
     }
 }
