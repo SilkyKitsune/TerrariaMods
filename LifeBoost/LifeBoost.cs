@@ -11,6 +11,8 @@ internal sealed class LifeBoostPlayer : ModPlayer
         LifeFruitAmount = 20, MaxLifeFruits = 10,
         BaseManaAmount = 50, ManaCrystalAmount = 50, MaxManaCrystals = 10;
 
+    internal const float AttackMultiplier = 2f, DefenseMultiplier = 3f, SpeedMultiplier = 10f;
+
     internal int lifeCrystalsUsed = 0, lifeFruitsUsed = 0, manaCrystalsUsed = 0;
 
     internal float lifeMultiplier = 1f, manaMultiplier = 1f;
@@ -21,6 +23,22 @@ internal sealed class LifeBoostPlayer : ModPlayer
         tag.TryGet(nameof(lifeFruitsUsed),   out lifeFruitsUsed);
         tag.TryGet(nameof(manaCrystalsUsed), out manaCrystalsUsed);
     }
+
+    public override void PostUpdateBuffs()
+    {
+        Player player = Player;
+
+        player.statLifeMax2 +=
+            (int)(((BaseLifeAmount < 1 ? 1 : BaseLifeAmount) - 100 +
+            (lifeCrystalsUsed * LifeCrystalAmount) +
+            (lifeFruitsUsed * LifeFruitAmount)) * lifeMultiplier);
+
+        player.statManaMax2 +=
+            (int)(((BaseManaAmount < 0 ? 0 : BaseManaAmount) - 20 +
+            (manaCrystalsUsed * ManaCrystalAmount)) * manaMultiplier);
+    }
+
+    public override void PreUpdateBuffs() => lifeMultiplier = manaMultiplier = 1f;
 
     public override void SaveData(TagCompound tag)
     {
