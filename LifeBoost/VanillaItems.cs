@@ -14,11 +14,12 @@ public sealed class VanillaItems : GlobalItem
 
     internal const int PotionMulti = 2;
 
-    public override bool CanUseItem(Item item, Player player) => item.type != ItemID.LifeCrystal && item.type != ItemID.LifeFruit;
+    public override bool CanUseItem(Item item, Player player) =>
+        item.type != ItemID.LifeCrystal && item.type != ItemID.LifeFruit && item.type != ItemID.ManaCrystal;
 
     public override void SetDefaults(Item item)
     {
-        if (item.type == ItemID.LifeCrystal || item.type == ItemID.LifeFruit) item.consumable = false;
+        if (item.type == ItemID.LifeCrystal || item.type == ItemID.LifeFruit || item.type == ItemID.ManaCrystal) item.consumable = false;
 
         /*switch (item.type)
         {
