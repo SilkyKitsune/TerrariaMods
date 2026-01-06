@@ -8,11 +8,11 @@ namespace NoOreOnlyBars;
 
 public static class OopsAllBars
 {
-    private const int dropRedux = 2;
+    public const int dropReduction = 2;
 
-    private static int ReduceStack(int amount) => amount < 2 ? amount : amount / dropRedux;
+    public static int ReduceStack(int amount) => amount < 2 ? amount : amount / dropReduction;
 
-    internal static int OreItemToBar(int id) => id switch
+    public static int OreItemToBar(int id) => id switch
     {
         ItemID.CopperOre => ItemID.CopperBar,
         ItemID.TinOre => ItemID.TinBar,
@@ -42,7 +42,7 @@ public static class OopsAllBars
         _ => int.MinValue
     };
 
-    internal static int OreTileToBar(int id) => id switch
+    public static int OreTileToBar(int id) => id switch
     {
         TileID.Copper => ItemID.CopperBar,
         TileID.Tin => ItemID.TinBar,
@@ -72,7 +72,7 @@ public static class OopsAllBars
         _ => int.MinValue
     };
 
-    internal static void ReplaceOreWithBars(ILoot loot)
+    public static void ReplaceOreWithBars(ILoot loot)
     {
         List<IItemDropRule> rules = loot.Get();
         foreach (IItemDropRule rule in rules)
