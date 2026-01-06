@@ -1,14 +1,16 @@
 using System.Collections.Generic;
 using Terraria;
-using Terraria.ID;
 using Terraria.GameContent.ItemDropRules;
+using Terraria.ID;
 using Terraria.ModLoader;
 
 namespace NoOreOnlyBars;
 
 internal sealed class NoOreOnlyBars//OopsAllBars?
 {
-    private const int dropRedux = 2;//would reduce 1 to 0
+    private const int dropRedux = 2;
+
+    private static int ReduceStack(int amount) => amount < 2 ? amount : amount / dropRedux;
 
     internal static int OreItemToBar(int id) => id switch
     {
@@ -69,8 +71,6 @@ internal sealed class NoOreOnlyBars//OopsAllBars?
 
         _ => int.MinValue
     };
-
-    private static int ReduceStack(int amount) => amount < 2 ? amount : amount / dropRedux;
 
     internal static void ReplaceOreWithBars(ILoot loot)
     {
