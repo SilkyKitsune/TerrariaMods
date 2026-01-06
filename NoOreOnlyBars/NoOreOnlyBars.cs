@@ -6,7 +6,7 @@ using Terraria.ModLoader;
 
 namespace NoOreOnlyBars;
 
-internal sealed class NoOreOnlyBars//OopsAllBars?
+public static class OopsAllBars
 {
     private const int dropRedux = 2;
 
@@ -105,7 +105,7 @@ internal sealed class NoOreOnlyBars//OopsAllBars?
 
 internal sealed class ItemDrops : GlobalItem
 {
-    public override void ModifyItemLoot(Item item, ItemLoot itemLoot) => NoOreOnlyBars.ReplaceOreWithBars(itemLoot);
+    public override void ModifyItemLoot(Item item, ItemLoot itemLoot) => OopsAllBars.ReplaceOreWithBars(itemLoot);
 }
 
 internal sealed class TileDrops : GlobalTile
@@ -113,7 +113,7 @@ internal sealed class TileDrops : GlobalTile
 #if V1_4_4
     public override bool CanDrop(int i, int j, int type)
     {
-        int bar = NoOreOnlyBars.OreTileToBar(type);
+        int bar = OopsAllBars.OreTileToBar(type);
         if (bar != int.MinValue)
         {
             int index = Item.NewItem(null, i * 16, j * 16, 0, 0, bar);
@@ -183,7 +183,7 @@ internal sealed class NPCDrops : GlobalNPC
             case NPCID.LunarTowerStardust:
             case NPCID.PirateShip:
             case NPCID.MartianSaucer:
-                NoOreOnlyBars.ReplaceOreWithBars(npcLoot);
+                OopsAllBars.ReplaceOreWithBars(npcLoot);
                 break;
         }
     }
