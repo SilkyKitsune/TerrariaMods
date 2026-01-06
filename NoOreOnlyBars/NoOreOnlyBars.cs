@@ -110,24 +110,37 @@ internal sealed class ItemDrops : GlobalItem
 
 internal sealed class TileDrops : GlobalTile
 {
-#if V1_4_3
-        public override bool Drop(int i, int j, int type)
-#elif V1_4_4
-    public override void Drop(int i, int j, int type)
-#endif
+#if V1_4_4
+    public override bool CanDrop(int i, int j, int type)
     {
         int bar = NoOreOnlyBars.OreTileToBar(type);
         if (bar != int.MinValue)
         {
-            Item.NewItem(null, i * 16, j * 16, 0, 0, bar);
-#if V1_4_3
-                return false;
-#endif
+            int index = Item.NewItem(null, i * 16, j * 16, 0, 0, bar);
+
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                NetMessage.SendData(MessageID.SyncItem, -1, -1, null, index, 1f);
+
+            return false;
         }
-#if V1_4_3
-            return true;
-#endif
+        return true;
     }
+#elif V1_4_3
+    public override bool Drop(int i, int j, int type)
+    {
+        int bar = NoOreOnlyBars.OreTileToBar(type);
+        if (bar != int.MinValue)
+        {
+            int index = Item.NewItem(null, i * 16, j * 16, 0, 0, bar);
+            
+            if (Main.netMode == NetmodeID.MultiplayerClient)
+                NetMessage.SendData(MessageID.SyncItem, -1, -1, null, index, 1f);
+
+            return false;
+        }
+        return true;
+    }
+#endif
 }
 
 internal sealed class NPCDrops : GlobalNPC
