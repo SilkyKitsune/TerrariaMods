@@ -1,3 +1,6 @@
 Adds a new kind of zombie called the Daisy Pusher! They always drop 1-3 herb bags, providing a new way of gathering all those herbs you need to make potions!
 
+v1.1
+- Significantly reduced spawn rate
+
 Source: https://github.com/SilkyKitsune/TerrariaMods
