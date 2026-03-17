@@ -33,5 +33,5 @@ public sealed class DaisyPusherNPC : ModNPC
 
     public override void SetStaticDefaults() => Main.npcFrameCount[Type] = Main.npcFrameCount[NPCID.Zombie];
 
-    public override float SpawnChance(NPCSpawnInfo spawnInfo) => SpawnCondition.OverworldNightMonster.Chance / 6f;
+    public override float SpawnChance(NPCSpawnInfo spawnInfo) => SpawnCondition.OverworldNightMonster.Chance / 15f;
 }
